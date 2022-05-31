@@ -1,0 +1,33 @@
+name: Label issues
+on:
+  issues:
+    types:
+      - reopened
+      - opened
+      - closed
+      - assigned
+jobs:
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Label issues
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        with:
+          add-labels: "help-wanted"
+          ignore-if-labeled: true
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove_assigned
+        if: "github.event.action == 'assigned'"
+        uses: andymckay/labeler@master
+        with:
+            add-labels: "Assigned"
+            remove-labels: "help-wanted"
+      - name: Add closed label
+        if: "github.event.action == 'closed'"
+        uses: andymckay/labeler@master
+        with:
+            add-labels: "Closed"
+            remove-labels: "help-wanted,Assigned,inprogress"
