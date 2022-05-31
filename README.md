@@ -1,5 +1,5 @@
 # What is this for?
-This is my attempt towards task-3 of Open Source as part of Coding Week tasks by Coding Club IITG.
+This is my attempt towards task-3 of Open Source as part of Coding Week tasks by Coding Club IITG..
 
 # Contents
 ## Commentator:
