@@ -1,0 +1,23 @@
+#Comments on PR with repository name and a meme xD.
+
+name: PR comment meme
+on:
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            Created PR in ${{ github.repository }} repository!
+            Ruko Zara Sabr Karo!! 🐒
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' 
+          allow-repeats: false 
+  
