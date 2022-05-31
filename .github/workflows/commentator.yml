@@ -10,8 +10,7 @@ on:
 
 jobs:
   test:
-    permissions:
-      issues: write
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - uses: mshick/add-pr-comment@v1
